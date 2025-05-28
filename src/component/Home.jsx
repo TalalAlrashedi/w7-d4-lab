@@ -34,7 +34,6 @@ const Home = () => {
           Explore Our Characters
         </h2>
 
-
         <div className="max-w-md mx-auto mb-6">
           <input
             placeholder="Search by character name..."
@@ -43,7 +42,6 @@ const Home = () => {
             onChange={(e) => setInputText(e.target.value)}
           />
         </div>
-
 
         <div className="max-w-md mx-auto shadow-md mb-10 p-4 bg-gray-50 rounded-lg">
           <h3 className="text-xl font-semibold mb-4 text-gray-700">
@@ -93,21 +91,25 @@ const Home = () => {
           </button>
         </div>
 
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredChar.map((c) => (
-            <div key={c.id} className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
-              <div className="w-full aspect-[4/3] overflow-hidden rounded-lg mb-3">
+            <div
+              key={c.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
+            >
+              <div className="w-full h-70 ">
                 <img
                   src={c.image}
                   alt={c.name}
-                  className="object-cover object-center"
+                  className="object-contain w-full h-full"
                 />
               </div>
-              <h4 className="text-lg font-semibold text-gray-800 text-center">
-                {c.name}
-              </h4>
-              <p className="text-sm text-gray-500 text-center">{c.gender}</p>
+              <div className="p-4 text-center">
+                <h4 className="text-lg font-semibold text-gray-800">
+                  {c.name}
+                </h4>
+                <p className="text-sm text-gray-500">{c.gender}</p>
+              </div>
             </div>
           ))}
         </div>
